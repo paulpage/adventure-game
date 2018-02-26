@@ -2,6 +2,59 @@ var grassSprites = [];
 var spriteSize = 64;
 var grassImage;
 
+
+var upIsPressed = false;
+var downIsPressed = false;
+var rightIsPressed = false;
+var leftIsPressed = false;
+
+function keyPressed() {
+    switch(keyCode) {
+        case 87:
+        case 119:
+            upIsPressed = true
+            break;
+        case 83:
+        case 115:
+            downIsPressed = true
+            break;
+        case 68:
+        case 100:
+            rightIsPressed = true
+            break;
+        case 65:
+        case 97:
+            leftIsPressed = true
+            break;
+        default:
+            break;
+    }
+}
+
+function keyReleased() {
+    switch(keyCode) {
+        case 87:
+        case 119:
+            upIsPressed = false
+            break;
+        case 83:
+        case 115:
+            downIsPressed = false
+            break;
+        case 68:
+        case 100:
+            rightIsPressed = false
+            break;
+        case 65:
+        case 97:
+            leftIsPressed = false
+            break;
+        default:
+            break;
+    }
+}
+
+
 function preload() {
     grassImage = _newImage("res/Grass.png");
     treeImage = _newImage("res/Tree-1x1.png");
