@@ -2,7 +2,6 @@ var grassSprites = [];
 var spriteSize = 64;
 var grassImage;
 
-
 var upIsPressed = false;
 var downIsPressed = false;
 var rightIsPressed = false;
@@ -54,10 +53,10 @@ function keyReleased() {
     }
 }
 
-
 function preload() {
     grassImage = _newImage("res/Grass.png");
     treeImage = _newImage("res/Tree-1x1.png");
+    waterImage = _newImage("res/Water.png")
 }
 
 function _newImage(path) {
@@ -92,10 +91,19 @@ function setup() {
         pos = _gridRand();
         _newSprite(pos.x, pos.y, treeImage);
     }
+    pos = _gridRand()
+    _newSprite(pos.x, pos.y, waterImage)
 }
 
 function draw() {
     drawSprites();
     background(50);
     drawSprites();
+    move();
+}
+
+function move() {
+  if (upIsPressed) {
+
+  }
 }
