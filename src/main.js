@@ -2,11 +2,12 @@ var grassSprites = [];
 var spriteSize = 64;
 var grassImage;
 
-
 var upIsPressed = false;
 var downIsPressed = false;
 var rightIsPressed = false;
 var leftIsPressed = false;
+
+var ch = 0;
 
 function keyPressed() {
     switch(keyCode) {
@@ -54,10 +55,10 @@ function keyReleased() {
     }
 }
 
-
 function preload() {
     grassImage = _newImage("res/Grass.png");
     treeImage = _newImage("res/Tree-1x1.png");
+    waterImage = _newImage("res/Water.png")
 }
 
 function _newImage(path) {
@@ -92,10 +93,42 @@ function setup() {
         pos = _gridRand();
         _newSprite(pos.x, pos.y, treeImage);
     }
+    pos = _gridRand()
+    ch = _newSprite(pos.x, pos.y, waterImage)
+    console.log(ch);
 }
 
 function draw() {
     drawSprites();
     background(50);
     drawSprites();
+    move();
+}
+
+//function keyPressed() {
+  //if (keyCode == RIGHT_ARROW) {
+    //spr.setSpeed(1.5, 0);
+  //}
+  //else if (keyCode == DOWN_ARROW) {
+  //}
+  //else if (keyCode == LEFT_ARROW) {
+    //spr.setSpeed(1.5, 180);
+  //}
+  //else if (keyCode == UP_ARROW) {
+  //}
+  //else if (key == ' ') {
+    //spr.setSpeed(0, 0);
+  //}
+  //return false;
+//}
+
+function move() {
+  console.log(upIsPressed)
+  if (upIsPressed) {
+    ch.setSpeed(1.5, 270);
+    console.log(ch)
+  } else if (downIsPressed) {
+    ch.setSpeed(1.5, 90);
+  } else if (rightIsPressed) {
+  }
 }
