@@ -7,7 +7,7 @@ var downIsPressed = false;
 var rightIsPressed = false;
 var leftIsPressed = false;
 
-var ch = 0;
+var ch = _newSprite();
 
 function keyPressed() {
     switch(keyCode) {
@@ -99,10 +99,12 @@ function setup() {
 }
 
 function draw() {
+    console.log(ch)
     drawSprites();
     background(50);
     drawSprites();
     move();
+
 }
 
 //function keyPressed() {
