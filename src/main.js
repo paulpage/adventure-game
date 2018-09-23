@@ -7,7 +7,7 @@ var downIsPressed = false;
 var rightIsPressed = false;
 var leftIsPressed = false;
 
-var ch = _newSprite();
+var ch;
 
 function keyPressed() {
     switch(keyCode) {
@@ -58,7 +58,7 @@ function keyReleased() {
 function preload() {
     grassImage = _newImage("res/Grass.png");
     treeImage = _newImage("res/Tree-1x1.png");
-    waterImage = _newImage("res/Water.png")
+    waterImage = _newImage("res/Water.png");
 }
 
 function _newImage(path) {
@@ -79,7 +79,7 @@ function _newSprite(x, y, img) {
         x * spriteSize + spriteSize / 2,
         y * spriteSize + spriteSize / 2,
         spriteSize,
-        spriteSize).addImage(img);
+        spriteSize).addImage(img)
 }
 
 function setup() {
@@ -93,13 +93,12 @@ function setup() {
         pos = _gridRand();
         _newSprite(pos.x, pos.y, treeImage);
     }
-    pos = _gridRand()
-    ch = _newSprite(pos.x, pos.y, waterImage)
+    var posC = _gridRand()
+    ch = _newSprite(posC.x, posC.y, waterImage);
     console.log(ch);
 }
 
 function draw() {
-    console.log(ch)
     drawSprites();
     background(50);
     drawSprites();
@@ -114,7 +113,6 @@ function draw() {
   //else if (keyCode == DOWN_ARROW) {
   //}
   //else if (keyCode == LEFT_ARROW) {
-    //spr.setSpeed(1.5, 180);
   //}
   //else if (keyCode == UP_ARROW) {
   //}
@@ -128,7 +126,7 @@ function move() {
   console.log(upIsPressed)
   if (upIsPressed) {
     ch.setSpeed(1.5, 270);
-    console.log(ch)
+    console.log(ch);
   } else if (downIsPressed) {
     ch.setSpeed(1.5, 90);
   } else if (rightIsPressed) {
